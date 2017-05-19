@@ -5,6 +5,7 @@ import lombok.Data;
 import uk.doh.oht.rina.domain.common.Properties;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by peterwhitehead on 03/05/2017.
@@ -20,7 +21,7 @@ public class OpenCaseSearchResult implements Serializable {
     private String applicationRoleId;
     private Properties properties;
     private String status;
-    private String dueDate;
+    private Date dueDate;
     private String countryCode;
 
     @Data
