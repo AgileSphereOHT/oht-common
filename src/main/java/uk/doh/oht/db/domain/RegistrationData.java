@@ -31,6 +31,7 @@ public class RegistrationData implements Serializable {
     private StartDateFormDate startDate;
     private String hasForeignPension;
     private String requestedBy;
+    private Date dueDate;
     private StartDateFormDate s073StartDate;
     private String caseId;
     private String modifiedByUserId;

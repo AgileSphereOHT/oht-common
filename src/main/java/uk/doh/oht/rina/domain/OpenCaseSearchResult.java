@@ -25,7 +25,7 @@ public class OpenCaseSearchResult implements Serializable {
 
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
-    class Traits implements Serializable {
+    public class Traits implements Serializable {
         private long serialVersionUID = 1L;
 
         private String birthday;
