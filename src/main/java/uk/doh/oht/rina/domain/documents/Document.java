@@ -14,6 +14,8 @@ public class Document implements Serializable {
 
     private S073 s073;
 
+    private S072 s072;
+
     public long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -30,5 +32,15 @@ public class Document implements Serializable {
     @JsonProperty("S073")
     public void setS073(final S073 s073) {
         this.s073 = s073;
+    }
+
+    @JsonProperty("S072")
+    public S072 getS072() {
+        return s072;
+    }
+
+    @JsonProperty("S072")
+    public void setS072(S072 s072) {
+        this.s072 = s072;
     }
 }
