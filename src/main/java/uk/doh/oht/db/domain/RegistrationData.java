@@ -56,7 +56,13 @@ public class RegistrationData implements Serializable {
 
     private String formatAddress(final Address address) {
         StringBuilder stringBuilder = new StringBuilder();
-        if (address.getLineOne() != null) { stringBuilder.append(address.getLineOne()).append("<br>"); }
+        try {
+            if (address.getLineOne() != null) {
+                stringBuilder.append(Integer.valueOf(address.getLineOne().trim())).append(" ");
+            }
+        } catch (NumberFormatException e) {
+            if (address.getLineOne() != null) { stringBuilder.append(address.getLineOne()).append("<br>"); }
+        }
         if (address.getLineTwo() != null) { stringBuilder.append(address.getLineTwo()).append("<br>"); }
         if (address.getLineThree() != null) { stringBuilder.append(address.getLineThree()).append("<br>"); }
         if (address.getLineFour() != null) { stringBuilder.append(address.getLineFour()).append("<br>"); }
