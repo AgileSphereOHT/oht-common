@@ -25,13 +25,13 @@ public class Notification implements Serializable {
     private String isRead;
     private String slot;
     private String assignmentRequest;
-    private String creationDate;
+    private Date creationDate;
     private String type;
     private Case caseData;
     private Boolean expanded;
     private List<ResponsibleParty> responsibleParties;
     private String sourceType;
-    private String lastUpdate;
+    private Date lastUpdate;
     private String caseId;
     private Boolean isSelected;
     private FailureReason failureReason;
