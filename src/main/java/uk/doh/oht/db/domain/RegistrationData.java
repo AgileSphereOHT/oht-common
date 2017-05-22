@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import uk.doh.oht.validation.StartDateFormDate;
 
 import java.io.Serializable;
@@ -35,4 +36,34 @@ public class RegistrationData implements Serializable {
     private StartDateFormDate s073StartDate;
     private String caseId;
     private String modifiedByUserId;
+
+    public String getForeignAddress() {
+        return getAddress("Foreign");
+    }
+
+    public String getCurrentAddress() {
+        return getAddress("National");
+    }
+
+    public String getAddress(final String addressType) {
+        for (final Address address : addresses) {
+            if (addressType.equalsIgnoreCase(address.getType())) {
+                return formatAddress(address);
+            }
+        }
+        return null;
+    }
+
+    private String formatAddress(final Address address) {
+        StringBuilder stringBuilder = new StringBuilder();
+        if (address.getLineOne() != null) { stringBuilder.append(address.getLineOne()).append("<br>"); }
+        if (address.getLineTwo() != null) { stringBuilder.append(address.getLineTwo()).append("<br>"); }
+        if (address.getLineThree() != null) { stringBuilder.append(address.getLineThree()).append("<br>"); }
+        if (address.getLineFour() != null) { stringBuilder.append(address.getLineFour()).append("<br>"); }
+        if (address.getLineFive() != null) { stringBuilder.append(address.getLineFive()).append("<br>"); }
+        if (address.getLineSix() != null) { stringBuilder.append(address.getLineSix()).append("<br>"); }
+        if (address.getPostcode() != null) { stringBuilder.append(address.getPostcode()).append("<br>"); }
+        if (address.getCountry() != null) { stringBuilder.append(address.getCountry()).append("<br>"); }
+        return StringUtils.removeEnd(stringBuilder.toString(), "<br>");
+    }
 }
