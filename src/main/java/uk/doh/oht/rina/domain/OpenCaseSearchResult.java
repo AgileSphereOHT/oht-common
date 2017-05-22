@@ -29,7 +29,7 @@ public class OpenCaseSearchResult implements Serializable {
     public class Traits implements Serializable {
         private long serialVersionUID = 1L;
 
-        private Date birthday;
+        private String birthday;
         private String localPin;
         private String surname;
         private String caseId;
