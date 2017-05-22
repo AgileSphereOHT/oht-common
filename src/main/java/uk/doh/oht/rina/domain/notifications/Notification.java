@@ -6,6 +6,7 @@ import uk.doh.oht.rina.domain.common.Creator;
 import uk.doh.oht.rina.domain.common.FailureReason;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ public class Notification implements Serializable {
     private String severity;
     private String reason;
     private Creator creator;
-    private String dueDate;
+    private Date dueDate;
     private Document document;
     private String isRead;
     private String slot;
