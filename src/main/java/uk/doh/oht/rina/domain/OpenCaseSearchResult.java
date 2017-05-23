@@ -3,6 +3,7 @@ package uk.doh.oht.rina.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import uk.doh.oht.rina.domain.common.Properties;
+import uk.doh.oht.rina.domain.documents.Address;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -23,12 +24,15 @@ public class OpenCaseSearchResult implements Serializable {
     private String status;
     private Date dueDate;
     private String countryCode;
+    private String countryDescription;
 
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
     public class Traits implements Serializable {
         private long serialVersionUID = 1L;
 
+        private Address address;
+        private String gender;
         private Date birthday;
         private String localPin;
         private String surname;
