@@ -43,7 +43,7 @@ public class OpenCaseSearchResult implements Serializable {
         private String status;
     }
 
-    public String getFormatedAddress() {
+    public String getFormattedAddress() {
         final StringBuilder stringBuilder = new StringBuilder();
         final Address address = traits.getAddress();
         if (address.getStreet() != null) { stringBuilder.append(address.getStreet()).append("<br>"); }
