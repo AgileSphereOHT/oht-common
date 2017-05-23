@@ -55,7 +55,7 @@ public class RegistrationData implements Serializable {
     }
 
     private String formatAddress(final Address address) {
-        StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder();
         try {
             if (address.getLineOne() != null) {
                 stringBuilder.append(Integer.valueOf(address.getLineOne().trim())).append(" ");

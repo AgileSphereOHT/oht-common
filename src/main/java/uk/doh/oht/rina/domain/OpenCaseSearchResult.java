@@ -2,6 +2,7 @@ package uk.doh.oht.rina.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 import uk.doh.oht.rina.domain.common.Properties;
 import uk.doh.oht.rina.domain.documents.Address;
 
@@ -40,5 +41,16 @@ public class OpenCaseSearchResult implements Serializable {
         private String name;
         private String flowType;
         private String status;
+    }
+
+    public String formatAddress() {
+        final StringBuilder stringBuilder = new StringBuilder();
+        final Address address = traits.getAddress();
+        if (address.getStreet() != null) { stringBuilder.append(address.getStreet()).append("<br>"); }
+        if (address.getTown() != null) { stringBuilder.append(address.getTown()).append("<br>"); }
+        if (address.getRegion() != null) { stringBuilder.append(address.getRegion()).append("<br>"); }
+        if (address.getPostalCode() != null) { stringBuilder.append(address.getPostalCode()).append("<br>"); }
+        if (countryDescription != null) { stringBuilder.append(address.getCountry()).append("<br>"); }
+        return StringUtils.removeEnd(stringBuilder.toString(), "<br>");
     }
 }
