@@ -43,14 +43,14 @@ public class OpenCaseSearchResult implements Serializable {
         private String status;
     }
 
-    public String formatAddress() {
+    public String getFormatedAddress() {
         final StringBuilder stringBuilder = new StringBuilder();
         final Address address = traits.getAddress();
         if (address.getStreet() != null) { stringBuilder.append(address.getStreet()).append("<br>"); }
         if (address.getTown() != null) { stringBuilder.append(address.getTown()).append("<br>"); }
         if (address.getRegion() != null) { stringBuilder.append(address.getRegion()).append("<br>"); }
         if (address.getPostalCode() != null) { stringBuilder.append(address.getPostalCode()).append("<br>"); }
-        if (countryDescription != null) { stringBuilder.append(address.getCountry()).append("<br>"); }
+        if (countryDescription != null) { stringBuilder.append(countryDescription).append("<br>"); }
         return StringUtils.removeEnd(stringBuilder.toString(), "<br>");
     }
 }
