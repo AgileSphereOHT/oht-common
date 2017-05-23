@@ -1,5 +1,6 @@
 package uk.doh.oht.rina.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
@@ -43,6 +44,7 @@ public class OpenCaseSearchResult implements Serializable {
         private String status;
     }
 
+    @JsonIgnore
     public String getFormattedAddress() {
         final StringBuilder stringBuilder = new StringBuilder();
         final Address address = traits.getAddress();

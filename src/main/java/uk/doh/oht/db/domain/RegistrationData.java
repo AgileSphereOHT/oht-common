@@ -1,5 +1,6 @@
 package uk.doh.oht.db.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,14 +38,17 @@ public class RegistrationData implements Serializable {
     private String caseId;
     private String modifiedByUserId;
 
+    @JsonIgnore
     public String getForeignAddress() {
         return getAddress("Foreign");
     }
 
+    @JsonIgnore
     public String getCurrentAddress() {
         return getAddress("National");
     }
 
+    @JsonIgnore
     public String getAddress(final String addressType) {
         for (final Address address : addresses) {
             if (addressType.equalsIgnoreCase(address.getType())) {
@@ -54,6 +58,7 @@ public class RegistrationData implements Serializable {
         return null;
     }
 
+    @JsonIgnore
     private String formatAddress(final Address address) {
         final StringBuilder stringBuilder = new StringBuilder();
         try {
