@@ -1,11 +1,16 @@
 package uk.doh.oht.db.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import org.apache.commons.lang3.StringUtils;
 import uk.doh.oht.validation.StartDateFormDate;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.joining;
 
 /**
  * Created by peterwhitehead on 10/05/2017.
@@ -56,4 +61,18 @@ public class PendingRegistrationData implements Serializable {
     private String caseId;
     private StartDateFormDate startDate;
     private String modifiedByUserId;
+
+    @JsonIgnore
+    public String getDisplayCurrentAddress() {
+        final String firstLine = Stream.of(currentLineOne, currentLineTwo).filter(s -> s != null && !s.isEmpty()).collect(joining(" "));
+        return Stream.of(firstLine, currentLineThree, currentLineFour, currentLineFive, currentLineSix, currentPostcode, currentCountry)
+                .filter(StringUtils::isNotEmpty).collect(joining("<br>"));
+    }
+
+    @JsonIgnore
+    public String getDisplayMovingAddress() {
+        final String firstLine = Stream.of(movingLineOne, movingLineTwo).filter(s -> !StringUtils.isEmpty(s)).collect(joining(" "));
+        return Stream.of(firstLine, movingLineThree, movingLineFour, movingLineFive, movingLineSix, movingPostcode, movingCountry)
+                .filter(StringUtils::isNotEmpty).collect(joining("<br>"));
+    }
 }
