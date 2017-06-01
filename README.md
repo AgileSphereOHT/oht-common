@@ -1,6 +1,7 @@
-## Overseas Healthcare Service - Common Library
+# Overseas Healthcare Service - Common Library
 
-### Overview
+## Overview
+
 This project is part of a solution for an Overseas Healthcare service commissioned by the UK Department of Health.
 
 With an initial focus on provision for state pensioners living outside their country of origin, it will progressively provide a replacement for the existing Medical Benefits system currently being used to provide overseas healthcare support.
@@ -9,7 +10,8 @@ A key requirement of the proposed development is that it is capable of interfaci
 
 The initial development has successfully delivered a demonstration of this interface working against a deployed instance of RINA, and a front end that is in line with the S1 Request and Registration ‘happy paths' of the prototype being tested against user needs.
 
-### Solution services
+## Solution services
+
 The current solution has been developed as three REST based micro services built using Spring Boot running on an embedded Tomcat web container.
 
     oht-frontend (**cross reference**)
@@ -20,7 +22,8 @@ There is also a common shared library containing the definitions of system domai
 
     oht-common (this project)
 
-###Technologies being used across projects
+## Technologies being used across projects
+
 - Spring MVC
 - Thymeleaf
 - Spring Security
@@ -32,7 +35,8 @@ There is also a common shared library containing the definitions of system domai
 - Lombok
 - Swagger
 
-### This project
+## This project
+
 The oht-common library primarily provides definitions of domain objects shared between the frontend and back end services.
 They are defined in two packages
 
@@ -42,7 +46,7 @@ They are defined in two packages
 
 For the domain objects Lombok is being used to reduce the boilerplate code and keep the code clean.
 
-### Build
+## Build
 
 Assumes local installation of gradle
 
@@ -54,5 +58,10 @@ From project root
     gradle build                to compile, run tests and create jar file
     gradle publishToMavenLocal  to build and install jar in local maven repo
 
-### See also
+## License
+
+This document is released under [CC0](LICENSE.md).
+
+## See also
+
 https://oh-alpha-confluence.atlassian.net/wiki/display/OHA/Setting+up+development+environment
